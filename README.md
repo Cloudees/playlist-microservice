@@ -19,7 +19,7 @@ We have defined some custom metrics for better observability like
 * Number of videos
 * Number of videos per playlist
 
-We expose the port 10010 for serving our web application. You can get playlists by browsing /{id} routes. Additionally you can tage a look athe health of the application by check /healthz route
+We expose the port 10010 for serving our web application. You can get playlists by browsing /{id} routes. Additionally you can tage a look athe health of the application by check /healthz route   
 
 
 The following repository is inspired by this amazing work [link](https://github.com/kubees/playlist-microservice/) 
