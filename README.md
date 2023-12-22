@@ -20,5 +20,7 @@ We have defined some custom metrics for better observability like:
 - Number of videos per playlist.
 
 We expose the port 10010 for serving our web application. 
+
 We can get playlists by browsing /{id} routes. 
+
 Additionally, we can take a look at the health of the application by checking /healthz route.
