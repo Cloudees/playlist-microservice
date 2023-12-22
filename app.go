@@ -15,12 +15,11 @@ import (
 	metrics "github.com/slok/go-http-metrics/metrics/prometheus"
 	"github.com/slok/go-http-metrics/middleware"
 	httproutermiddleware "github.com/slok/go-http-metrics/middleware/httprouter"
-
 	"github.com/ayadi-mohamed/playlist-microservice/jaeger"
 )
 
 const metricsAddr = ":8000"
-
+const version = "1.0.0"
 var environment = os.Getenv("ENVIRONMENT")
 var redisHost = os.Getenv("REDIS_HOST")
 var redisPort = os.Getenv("REDIS_PORT")
