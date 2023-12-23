@@ -58,6 +58,7 @@ def pushToDeploymentGitHub() {
         git push origin main
         """
     }
+    sh "rm -rf deployment"
 }
 
 def gitpush(){
