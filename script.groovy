@@ -44,6 +44,20 @@ def trivyScan(){
 
 def pushToDeploymentGitHub() {
     echo "Pushing to Deployment GitHub..."
+    sh "git clone git@github.com:Cloudees/deployment.git"
+    def currentVersion = sh(script: "grep 'image: oumaymacharrad/playlist-microservice' deployment/microservices/playlist/deployment-playlist.yaml | awk -F: '{print \$3}' | cut -d'@' -f1", returnStdout: true).trim()
+    env.CURRENT_VERSION = currentVersion
+    sh "sed -i 's|image: oumaymacharrad/playlist-microservice:$CURRENT_VERSION|image: oumaymacharrad/playlist-microservice:$IMAGE_VERSION|' deployment/microservices/playlist/deployment-playlist.yaml"
+    sh """
+    cd deployment
+    git commit -am 'Increment Version to ${IMAGE_VERSION}'
+    """
+    sshagent(credentials: ['Private-Key']) {
+        sh """
+        cd deployment
+        git push origin main
+        """
+    }
 }
 
 def gitpush(){
